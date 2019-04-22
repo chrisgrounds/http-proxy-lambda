@@ -2,7 +2,7 @@
 
 This is a CORS-enabled HTTP Proxy using Haskell and AWS Lambda to achieve a type-safe :fire:, low-cost :heavy_dollar_sign:, and highly-maintainable :computer: experience. 
 
-This has been deployed to AWS Lamda, which you can access here:
+This has been deployed to AWS Lamda, which you can use in the following way to proxy _https://bbc.co.uk_:
 
 https://ios10m3q6k.execute-api.us-east-1.amazonaws.com/dev/endpoint/bbc.co.uk
 
