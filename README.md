@@ -10,6 +10,7 @@ https://ios10m3q6k.execute-api.us-east-1.amazonaws.com/dev/endpoint/bbc.co.uk
 
 ### Dependencies
 
+- docker
 - stack
 - serverless
 
