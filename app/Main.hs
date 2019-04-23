@@ -31,8 +31,7 @@ getProxyBody resFromGivenUrl = return . LazyText.toStrict . LazyText.decodeUtf8 
 
 handler :: APIGatewayProxyRequest Text -> IO (APIGatewayProxyResponse Text)
 handler request = do
-  let pathMap = request ^. agprqPathParameters
-  let urlPath = HMS.lookup "url" pathMap
+  let urlPath = HMS.lookup "url" $ request ^. agprqPathParameters
 
   case urlPath of
     Just path ->
