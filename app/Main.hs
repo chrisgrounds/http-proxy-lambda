@@ -17,11 +17,11 @@ import qualified Network.Wreq as Http
 
 main = apiGatewayMain handler
 
-html200Res :: Text -> IO (APIGatewayProxyResponse Text)
-html200Res proxyBody = pure $ html200ResWithNoBody & responseBody ?~ proxyBody
+htmlRes :: Int -> Text -> IO (APIGatewayProxyResponse Text)
+htmlRes status proxyBody = pure $ htmlResWithNoBody status & responseBody ?~ proxyBody
   where
-    html200ResWithNoBody :: APIGatewayProxyResponse Text
-    html200ResWithNoBody = APIGatewayProxyResponse 200 [("Content-Type", "text/html")] Nothing
+    htmlResWithNoBody :: Int -> APIGatewayProxyResponse Text
+    htmlResWithNoBody status = APIGatewayProxyResponse status [("Content-Type", "text/html")] Nothing    
 
 protocol :: String
 protocol = "https://"
@@ -37,6 +37,6 @@ handler request = do
     Just path ->
       (Http.get $ protocol <> unpack path) 
         >>= getProxyBody
-        >>= html200Res 
-    Nothing -> html200Res "No path found"
+        >>= htmlRes 200
+    Nothing -> htmlRes 500 "No path found"
 
