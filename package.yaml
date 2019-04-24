@@ -28,12 +28,20 @@ dependencies:
 - unordered-containers
 - wreq
 
+ghc-options:
+- -threaded
+- -rtsopts
+- -with-rtsopts=-N
+
 executables:
-  http-proxy-lambda-exe:
-    main:                Main.hs
-    source-dirs:         app
+  proxy:
+    main:        Proxy.hs
+    source-dirs: app
     ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+      - -main-is Proxy.mainHandler
+  render:
+    main:        Render.hs
+    source-dirs: app
+    ghc-options:
+      - -main-is Render.mainHandler
 

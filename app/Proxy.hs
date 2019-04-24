@@ -1,27 +1,24 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Main where
+module Proxy where
 
 import           AWSLambda.Events.APIGateway
 import           Control.Lens
-import           Data.Aeson
-import           Data.Aeson.Embedded
-import qualified Data.ByteString as BS
 import qualified Data.ByteString.Lazy.Internal as BSL
 import qualified Data.HashMap.Strict as HMS
-import           Data.Maybe
 import           Data.Text
 import qualified Data.Text.Lazy as LazyText
 import qualified Data.Text.Lazy.Encoding as LazyText
 import qualified Network.Wreq as Http
 
-main = apiGatewayMain handler
+mainHandler :: IO ()
+mainHandler = apiGatewayMain handler
 
 htmlRes :: Int -> Text -> IO (APIGatewayProxyResponse Text)
 htmlRes status proxyBody = pure $ htmlResWithNoBody status & responseBody ?~ proxyBody
   where
     htmlResWithNoBody :: Int -> APIGatewayProxyResponse Text
-    htmlResWithNoBody status = APIGatewayProxyResponse status [("Content-Type", "text/html")] Nothing    
+    htmlResWithNoBody statusCode = APIGatewayProxyResponse statusCode [("Content-Type", "text/html")] Nothing    
 
 protocol :: String
 protocol = "https://"

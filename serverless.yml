@@ -2,24 +2,32 @@ service: http-proxy-lambda
 
 provider:
   name: aws
-  runtime: haskell
 
 functions:
   http-proxy-lambda:
-    handler: http-proxy-lambda.http-proxy-lambda-exe
+    runtime: haskell
+    handler: http-proxy-lambda.proxy
     events:
      - http:
         path: endpoint/{url}
         method: get
         cors: true
-        # integration: lambda
-        # request:
-        #   parameters:
-        #     paths:
-        #       url: true
-        # response:
-        #   headers:
-        #     Content-Type: "'text/html'"
+  home:
+    runtime: nodejs8.10
+    handler: frontend/index.handler
+    events:
+     - http:
+        path: home
+        method: get
+        cors: true
+  render:
+    runtime: haskell
+    handler: http-proxy-lambda.render
+    events:
+     - http:
+        path: render
+        method: get
+        cors: true
 
 plugins:
   - serverless-haskell
