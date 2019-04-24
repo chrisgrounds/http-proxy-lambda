@@ -1,6 +1,6 @@
 # HTTP-Proxy-Lambda
 
-This is a CORS-enabled HTTP Proxy using Haskell and AWS Lambda to achieve a type-safe :fire:, low-cost :heavy_dollar_sign:, and highly-maintainable :computer: experience. 
+This is a Serverless, CORS-enabled, HTTP Proxy using Haskell and AWS Lambda to achieve a type-safe :fire:, low-cost :heavy_dollar_sign:, and highly-maintainable :computer: experience. 
 
 This has been deployed to AWS Lamda, which you can use in the following way to proxy, for example, _https://bbc.co.uk_:
 
