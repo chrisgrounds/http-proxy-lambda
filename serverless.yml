@@ -12,22 +12,6 @@ functions:
         path: endpoint/{url}
         method: get
         cors: true
-  home:
-    runtime: nodejs8.10
-    handler: frontend/index.handler
-    events:
-     - http:
-        path: home
-        method: get
-        cors: true
-  render:
-    runtime: haskell
-    handler: http-proxy-lambda.render
-    events:
-     - http:
-        path: render
-        method: get
-        cors: true
 
 plugins:
   - serverless-haskell
