@@ -2,21 +2,11 @@ name:                http-proxy-lambda
 version:             0.1.0
 github:              "githubuser/http-proxy-lambda"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2019 Author name here"
+author:              "Christopher Grounds"
+copyright:           "2019 Christopher Grounds"
 
 extra-source-files:
 - README.md
-
-# Metadata used when publishing your package
-# synopsis:            Short description of your package
-# category:            Web
-
-# To avoid duplicated efforts in documentation and dealing with the
-# complications of embedding Haddock markup inside cabal files, it is
-# common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/githubuser/http-proxy-lambda#readme>
 
 dependencies:
 - base >= 4.7 && < 5
@@ -38,10 +28,4 @@ executables:
     main:        Proxy.hs
     source-dirs: app
     ghc-options:
-      - -main-is Proxy.mainHandler
-  render:
-    main:        Render.hs
-    source-dirs: app
-    ghc-options:
-      - -main-is Render.mainHandler
-
+    - -main-is Proxy.mainHandler
