@@ -10,6 +10,8 @@ This has been deployed to AWS Lamda, which you can use in the following way to p
 https://ios10m3q6k.execute-api.us-east-1.amazonaws.com/dev/endpoint/bbc.co.uk
 ```
 
+**This Lambda has been deleted**
+
 You can pass any domain you would like to be proxied after _endpoint_
 
 ```
